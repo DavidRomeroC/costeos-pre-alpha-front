@@ -1,7 +1,15 @@
+"use client"
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 const ListarCosteos = ({ costeos }: any) => {
+
+    const router = useRouter()
+
+    useEffect(() => { router.refresh() }, [])
+
+
     return (
         <div className='w-4/5 h-10 border-2 self-center mt-10 ' >
             {

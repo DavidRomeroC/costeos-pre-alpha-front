@@ -3,8 +3,11 @@ import Image from "next/image"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
 
 const FormularioCosteo = ({ dataSucursales }: any) => {
+
+    const router = useRouter()
 
     const serachParams = useSearchParams()
     const queryCostea = serachParams.get("costea")
@@ -58,8 +61,15 @@ const FormularioCosteo = ({ dataSucursales }: any) => {
         });
     }
 
-    const sendData = () => {
-
+    const sendData = async () => {
+        await fetch(`http://localhost:7000/costeos`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(costeo),
+        });
+        router.push("/costeos")
     }
 
     return (
