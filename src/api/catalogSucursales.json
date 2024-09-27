@@ -1,0 +1,46 @@
+{
+  "sucursales": [
+    {
+      "id": "0",
+      "name": "Super G Centro",
+      "productos": [
+        {
+          "uuid": 12345,
+          "plu": 102,
+          "verdura": "Acelga",
+          "cantidad": 0,
+          "tara": 0,
+          "numxpieza": 20,
+          "promedio": 0,
+          "entero": true
+        },
+        {
+          "uuid": 123456789,
+          "plu": 105,
+          "verdura": "Aguacate",
+          "cantidad": 0,
+          "tara": 0.5,
+          "numxpieza": 0,
+          "promedio": 10,
+          "entero": false
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Super 7",
+      "productos": [
+        {
+          "uuid": 9876554442,
+          "plu": 102,
+          "verdura": "Acelga",
+          "cantidad": 0,
+          "tara": 0,
+          "numxpieza": 20,
+          "promedio": 0,
+          "entero": true
+        }
+      ]
+    }
+  ]
+}

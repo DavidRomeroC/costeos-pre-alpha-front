@@ -1,0 +1,25 @@
+{
+    "costeos": [
+        {
+            "fecha": "2024-05-31",
+            "costea": "David",
+            "comprador": "Romero",
+            "sucursales": [
+                {
+                    "name": "Super G centro",
+                    "productos": {
+                        "acelga": 0,
+                        "aguacate": 0
+                    }
+                },
+                {
+                    "name": "Super 7",
+                    "productos": {
+                        "acelga": 0,
+                        "aguacate": 0
+                    }
+                }
+            ]
+        }
+    ]
+}
