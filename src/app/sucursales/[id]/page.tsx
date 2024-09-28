@@ -1,15 +1,21 @@
-import { FormEditCatalogo } from "@/helpers/sucursales/FormEditCatalogo"
+import { FormEditCatalogo } from "@/components/sucursales/FormEditCatalogo"
 import fetchSucursales from "@/helpers/sucursales/getDataSucursales"
-import ModalAddProduct from "@/helpers/sucursales/id/ModalAddProduct"
+import ModalAddProduct from "@/components/sucursales/id/ModalAddProduct"
 import Image from "next/image"
 import Link from "next/link"
+import { DataSucursales, Producto } from "@/types"
 
+type PropsEditarSucursal = {
+    params: {
+        id: number;
+    }
+}
 
-async function EditarSucursal({ params }: any) {
+async function EditarSucursal({ params }: PropsEditarSucursal) {
 
     const ide = params.id
-    const sucursales: any = await fetchSucursales()
-    const sucursalIndex = sucursales.findIndex((suc: any) => suc.id == ide)
+    const sucursales: DataSucursales[] = await fetchSucursales()
+    const sucursalIndex: number = sucursales.findIndex((suc: DataSucursales) => suc.id === ide * 1)
     const { name, id, productos } = sucursales[sucursalIndex]
 
     return (
