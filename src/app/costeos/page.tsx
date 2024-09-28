@@ -1,12 +1,13 @@
 import ListarCosteos from "@/components/costeos/ListarCosteos";
 import ShowAddCosteo from "@/components/ShowAddCosteo";
 import getDataCosteos from "@/helpers/costeos/getDataCosteos"
+import { DataCosteos } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function Costeospage() {
 
-    const costeos: any = await getDataCosteos()
+    const costeos: DataCosteos[] = await getDataCosteos()
 
     return (
         <div className="w-full border-[5px] flex justify-center flex-col h-auto " >

@@ -1,10 +1,11 @@
 import fetchSucursales from "@/helpers/sucursales/getDataSucursales"
+import { DataSucursales } from "@/types"
 import Image from "next/image"
 import Link from "next/link"
 
 async function Sucursales() {
 
-    const sucursales: any = await fetchSucursales()
+    const sucursales: DataSucursales[] = await fetchSucursales()
 
     return (
         <div className="w-full h-auto flex justify-center flex-col items-center " >
@@ -22,7 +23,7 @@ async function Sucursales() {
             <div className=" w-3/4 mt-16 flex flex-col items-center " >
                 <h1 className="text-5xl font-extrabold mb-10" >SUCURSALES</h1>
                 {
-                    sucursales.map(({ id, name, productos }: any) => (
+                    sucursales.map(({ id, name, productos }) => (
                         <div key={id} className="w-1/2 h-16 bg-[#F18360] my-3 rounded-2xl flex items-center justify-evenly " >
                             <p className="text-3xl font-bold  " > {name.toUpperCase()} </p>
                             <Link href={`/sucursales/${id}`} >

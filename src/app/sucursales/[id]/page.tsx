@@ -3,13 +3,7 @@ import fetchSucursales from "@/helpers/sucursales/getDataSucursales"
 import ModalAddProduct from "@/components/sucursales/id/ModalAddProduct"
 import Image from "next/image"
 import Link from "next/link"
-import { DataSucursales, Producto } from "@/types"
-
-type PropsEditarSucursal = {
-    params: {
-        id: number;
-    }
-}
+import { DataSucursales, Producto, PropsEditarSucursal } from "@/types"
 
 async function EditarSucursal({ params }: PropsEditarSucursal) {
 

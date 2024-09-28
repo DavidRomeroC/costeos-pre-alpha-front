@@ -17,3 +17,9 @@ export type DataSucursales = {
     name: string;
     productos: Producto[];
 };
+
+export type PropsEditarSucursal = {
+    params: {
+        id: number;
+    }
+}
