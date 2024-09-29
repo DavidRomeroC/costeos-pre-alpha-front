@@ -8,7 +8,7 @@ function ModalFormAdd() {
 
     const router = useRouter()
 
-    const [modal, setModal] = useState(true)
+    const [modal, setModal] = useState<boolean>(true)
     const [data, setData] = useState({
         costea: "",
         comprador: "",
@@ -25,7 +25,7 @@ function ModalFormAdd() {
         })
     }
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
         router.push(`viaje?costea=${data.costea}&comprador=${data.comprador}&fecha=${data.fecha}`)
@@ -38,10 +38,10 @@ function ModalFormAdd() {
 
     }
 
-    const handleChange = async (e: any) => {
+    const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const { id, value } = e.target
 
-        setData((prevData): any => ({
+        setData((prevData) => ({
             ...prevData, [id]: value
         })
         )

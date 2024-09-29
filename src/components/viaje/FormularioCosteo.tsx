@@ -4,8 +4,14 @@ import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
+import { DataCosteos, DataSucursales } from "@/types"
 
-const FormularioCosteo = ({ dataSucursales }: any) => {
+type PropsFormularioCosteo = {
+    dataSucursales: DataSucursales[]
+}
+
+
+const FormularioCosteo = ({ dataSucursales }: PropsFormularioCosteo) => {
 
     const router = useRouter()
 

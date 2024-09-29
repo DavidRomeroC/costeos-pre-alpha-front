@@ -1,6 +1,6 @@
 export type Producto = {
     uuid: number;
-    codePlu: number;
+    codePlu: number | string;
     verdura: string;
     cantidad: number;
     pesada: number;
@@ -9,7 +9,7 @@ export type Producto = {
     tara: number;
     numxpieza: number;
     promedio: number;
-    entero: boolean;
+    entero: string;
 };
 
 export type DataSucursales = {
@@ -22,4 +22,8 @@ export type PropsEditarSucursal = {
     params: {
         id: number;
     }
+}
+
+export type PropsFormEditCatalogos = {
+    catalogo: Producto;
 }

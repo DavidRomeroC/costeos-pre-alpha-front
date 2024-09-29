@@ -2,29 +2,40 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import { Producto } from "@/types";
 
-const ModalAddProduct = ({ id }: any) => {
+type PropsModalAddProduct = {
+    id: number;
+}
+
+
+const ModalAddProduct = ({ id }: PropsModalAddProduct) => {
 
     const router = useRouter()
 
-    const [modal, setModal] = useState(false)
+    const [modal, setModal] = useState<boolean>(false)
 
     const handleShowModal = () => {
         setModal(!modal)
     }
 
     const modelProduct = {
+        uuid: 0,
+        cantidad: 0,
         verdura: "",
-        entero: true,
+        entero: "",
         promedio: 0,
         numxpieza: 0,
         tara: 0,
-        codePlu: ""
+        codePlu: 0,
+        pesada: 0,
+        costo: 0,
+        costocaja: 0
     }
 
-    const [producto, setProducto] = useState<any>(modelProduct)
+    const [producto, setProducto] = useState<Producto>(modelProduct)
 
-    const handleSelectChange = (e: any) => {
+    const handleSelectChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         setProducto({
             ...producto,
             [e.target.name]: e.target.value

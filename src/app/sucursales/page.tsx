@@ -23,7 +23,7 @@ async function Sucursales() {
             <div className=" w-3/4 mt-16 flex flex-col items-center " >
                 <h1 className="text-5xl font-extrabold mb-10" >SUCURSALES</h1>
                 {
-                    sucursales.map(({ id, name, productos }) => (
+                    sucursales.map(({ id, name }) => (
                         <div key={id} className="w-1/2 h-16 bg-[#F18360] my-3 rounded-2xl flex items-center justify-evenly " >
                             <p className="text-3xl font-bold  " > {name.toUpperCase()} </p>
                             <Link href={`/sucursales/${id}`} >

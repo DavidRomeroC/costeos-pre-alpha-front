@@ -24,7 +24,7 @@ async function EditarSucursal({ params }: PropsEditarSucursal) {
                 <h2 className="text-3xl font-bold mb-14 " > {name} </h2>
                 <ModalAddProduct id={id} />
                 {
-                    productos.map((catalogo: any) => (
+                    productos.map((catalogo: Producto) => (
                         <div key={catalogo.verdura} className="w-full flex justify-around bg-[#F16060] h-14 mb-3 items-center rounded-md text-sm font-bold "  >
                             <FormEditCatalogo catalogo={catalogo} />
                         </div>

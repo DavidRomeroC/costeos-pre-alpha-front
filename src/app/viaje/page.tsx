@@ -7,7 +7,7 @@ const page = async () => {
 
 
 
-    const dataSucursales: DataSucursales = await fetchSucursales()
+    const dataSucursales: DataSucursales[] = await fetchSucursales()
 
     return (
         <div>

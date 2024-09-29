@@ -1,16 +1,18 @@
 "use client"
 
+import { Producto, PropsFormEditCatalogos } from "@/types"
 import { useParams } from "next/navigation"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 
-export const FormEditCatalogo = ({ catalogo }: any) => {
+export const FormEditCatalogo = ({ catalogo }: PropsFormEditCatalogos) => {
 
+    console.log(catalogo)
     const router = useRouter()
     const { id } = useParams()
-    const [state, setState] = useState(catalogo)
+    const [state, setState] = useState<Producto>(catalogo)
 
-    const handleSelectChange = (e: any) => {
+    const handleSelectChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         setState({
             ...state,
             [e.target.name]: e.target.value
