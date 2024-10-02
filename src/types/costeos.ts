@@ -1,11 +1,20 @@
-export type Productos = {
-    acelga: number;
-    aguacate: number;
+export type Producto = {
+    uuid: number;
+    codePlu: string | number;
+    verdura: string;
+    cantidad: number;
+    pesada: number;
+    costo: number;
+    costocaja: number;
+    tara: number;
+    numxpieza: number;
+    promedio: number;
+    entero: string;
 };
 
 export type Sucursal = {
     name: string;
-    productos: Productos;
+    productos: Producto[];
 };
 
 export type DataCosteos = {
@@ -16,6 +25,14 @@ export type DataCosteos = {
     monto: number;
     sucursales: Sucursal[];
 };
+
+export type TCosteoState = {
+    costea: string | null;
+    comprador: string | null;
+    fecha: string | null;
+    newCosteo: Sucursal[] | []
+}
+
 
 export type PropsListarCosteos = {
     costeos: DataCosteos[]

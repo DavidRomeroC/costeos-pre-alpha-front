@@ -4,12 +4,11 @@ import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
-import { DataCosteos, DataSucursales } from "@/types"
+import { DataSucursales, TCosteoState } from "@/types"
 
 type PropsFormularioCosteo = {
     dataSucursales: DataSucursales[]
 }
-
 
 const FormularioCosteo = ({ dataSucursales }: PropsFormularioCosteo) => {
 
@@ -20,40 +19,35 @@ const FormularioCosteo = ({ dataSucursales }: PropsFormularioCosteo) => {
     const queryComprador = serachParams.get("comprador")
     const queryFecha = serachParams.get("fecha")
 
-    const [costeo, setCosteo] = useState<any>({
+    const [costeo, setCosteo] = useState<TCosteoState>({
         costea: queryCostea,
         comprador: queryComprador,
         fecha: queryFecha,
-        newCosteo: [],
+        newCosteo: dataSucursales,
     })
-
-    useEffect(() => {
-        setCosteo({
-            ...costeo,
-            newCosteo: dataSucursales
-        })
-    }, [])
 
     const [select, setSelect] = useState<number>(0)
 
-    const arrayControl: any = []
+    const arrayControl = []
     for (let index = 0; index < dataSucursales.length; index++) {
         arrayControl.push(index)
     }
 
-    const handleSelect = (e: any) => {
-        setSelect(e.target.name)
+    const handleSelect = (e: React.MouseEvent<HTMLButtonElement>) => {
+        const selection = Number((e.target as HTMLButtonElement).name)
+        setSelect(selection)
     }
 
     const { costea, comprador, fecha, newCosteo } = costeo
 
-    const handleChangeValues = (e: any) => {
+    const handleChangeValues = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const value = e.target.value
         const name = e.target.name
         const uuid = e.target.id
         const index = newCosteo[select].productos.findIndex((p: any) => p.uuid == uuid)
 
-        setCosteo((prevCosteo: any) => {
+        setCosteo((prevCosteo: TCosteoState) => {
+            console.log(prevCosteo)
             const updatedCosteo = { ...prevCosteo };
             const updatedProductos = [...updatedCosteo.newCosteo[select].productos];
 
@@ -94,7 +88,7 @@ const FormularioCosteo = ({ dataSucursales }: PropsFormularioCosteo) => {
                                     alt="backpage"
                                 />
                             </Link>
-                            <h1 className="font-extrabold text-3xl " > COSTEA: {costea.toUpperCase()} COMPRADOR: {comprador.toUpperCase()} FECHA: {fecha} </h1>
+                            <h1 className="font-extrabold text-3xl " > COSTEA: {costea?.toUpperCase()} COMPRADOR: {comprador?.toUpperCase()} FECHA: {fecha} </h1>
                         </div>
                         <div className="w-4/5 h-auto flex flex-col items-center mt-11" >
                             <div className="w-full flex flex-col items-center " >

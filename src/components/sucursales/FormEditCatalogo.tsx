@@ -7,7 +7,6 @@ import { useState } from "react"
 
 export const FormEditCatalogo = ({ catalogo }: PropsFormEditCatalogos) => {
 
-    console.log(catalogo)
     const router = useRouter()
     const { id } = useParams()
     const [state, setState] = useState<Producto>(catalogo)
