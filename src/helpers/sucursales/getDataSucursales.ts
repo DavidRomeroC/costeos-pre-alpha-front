@@ -1,5 +1,9 @@
+import dotenv from "dotenv"
+
 async function fetchSucursales() {
-    const res = await fetch("http://localhost:7000/sucursales", { cache: "no-store" })
+    dotenv.config()
+    const apiSucursales = process.env.NEXT_PUBLIC_API_BASE_URL
+    const res = await fetch(`${apiSucursales}/sucursales`, { cache: "no-store" })
     const data = await res.json()
     return data
 }

@@ -4,8 +4,11 @@ import { Producto, PropsFormEditCatalogos } from "@/types"
 import { useParams } from "next/navigation"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
+import dotenv from "dotenv"
 
 export const FormEditCatalogo = ({ catalogo }: PropsFormEditCatalogos) => {
+    dotenv.config()
+    const apiSucursales = process.env.NEXT_PUBLIC_API_BASE_URL
 
     const router = useRouter()
     const { id } = useParams()
@@ -20,7 +23,7 @@ export const FormEditCatalogo = ({ catalogo }: PropsFormEditCatalogos) => {
     }
 
     const updateProduct = async () => {
-        await fetch(`http://localhost:7000/sucursales/${id}`, {
+        await fetch(`${apiSucursales}/sucursales/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -31,7 +34,7 @@ export const FormEditCatalogo = ({ catalogo }: PropsFormEditCatalogos) => {
     }
 
     const deleteProduct = async () => {
-        await fetch(`http://localhost:7000/sucursales/${id}`, {
+        await fetch(`${apiSucursales}/sucursales/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

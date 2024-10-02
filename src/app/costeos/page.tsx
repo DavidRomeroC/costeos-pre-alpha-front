@@ -11,7 +11,7 @@ export default async function Costeospage() {
 
     return (
         <div className="w-full border-[5px] flex justify-center flex-col h-auto " >
-            <div className="flex flex-row w-11/12 items-center justify-start self-center my-7 " >
+            <div className="flex flex-row w-11/12 items-center justify-start self-center my-7" >
                 <Link href="/" >
                     <Image
                         src="/backarrow.png"

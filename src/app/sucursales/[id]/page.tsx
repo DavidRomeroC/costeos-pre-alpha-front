@@ -15,7 +15,7 @@ async function EditarSucursal({ params }: PropsEditarSucursal) {
     return (
         <div className="w-full h-auto flex flex-col items-center " >
             <div className="w-2/4 flex items-center justify-evenly mt-10" >
-                <Link href="/costeos" >
+                <Link href="/sucursales" >
                     <Image src="/backarrow.png" height={50} width={50} alt="regresar al menu" />
                 </Link>
                 <p className="text-3xl font-bold" >EDITAR CATALOGO DE SUCURSAL</p>

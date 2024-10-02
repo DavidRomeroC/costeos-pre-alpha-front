@@ -2,15 +2,19 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { DataSucursales, TCosteoState } from "@/types"
+import dotenv from "dotenv"
 
 type PropsFormularioCosteo = {
     dataSucursales: DataSucursales[]
 }
 
+
 const FormularioCosteo = ({ dataSucursales }: PropsFormularioCosteo) => {
+    dotenv.config();
+    const apiCosteos = process.env.NEXT_PUBLIC_API_BASE_URL
 
     const router = useRouter()
 
@@ -47,7 +51,6 @@ const FormularioCosteo = ({ dataSucursales }: PropsFormularioCosteo) => {
         const index = newCosteo[select].productos.findIndex((p: any) => p.uuid == uuid)
 
         setCosteo((prevCosteo: TCosteoState) => {
-            console.log(prevCosteo)
             const updatedCosteo = { ...prevCosteo };
             const updatedProductos = [...updatedCosteo.newCosteo[select].productos];
 
@@ -55,14 +58,13 @@ const FormularioCosteo = ({ dataSucursales }: PropsFormularioCosteo) => {
                 ...updatedProductos[index],
                 [name]: value,
             };
-
             updatedCosteo.newCosteo[select].productos = updatedProductos;
             return updatedCosteo;
         });
     }
 
     const sendData = async () => {
-        await fetch(`http://localhost:7000/costeos`, {
+        await fetch(`${apiCosteos}/costeos`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
