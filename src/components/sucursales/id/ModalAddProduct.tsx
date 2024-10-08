@@ -8,8 +8,11 @@ type PropsModalAddProduct = {
     id: number;
 }
 
+import dotenv from "dotenv"
 
 const ModalAddProduct = ({ id }: PropsModalAddProduct) => {
+    dotenv.config()
+    const apiSucursales = process.env.NEXT_PUBLIC_API_BASE_URL
 
     const router = useRouter()
 
@@ -44,7 +47,7 @@ const ModalAddProduct = ({ id }: PropsModalAddProduct) => {
     }
 
     const submitData = async () => {
-        await fetch(`http://localhost:7000/sucursales/${id}`, {
+        await fetch(`${apiSucursales}/sucursales/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
