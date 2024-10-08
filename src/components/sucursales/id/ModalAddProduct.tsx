@@ -1,5 +1,5 @@
 "use client"
-
+import "./ModalAddProduct.css"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { Producto } from "@/types";
@@ -57,15 +57,15 @@ const ModalAddProduct = ({ id }: PropsModalAddProduct) => {
     }
 
     return (
-        <div className="flex flex-col w-full items-center " >
-            <div className="w-full flex flex-col items-center h-10 mb-6 " >
+        <div className="contentModalAddProduct" >
+            <div className=" buttonGroup" >
                 {
                     modal ?
-                        <button onClick={handleShowModal} className="bg-[#F16060] w-60 h-10 rounded-lg hover:border-2 hover:border-black"  >
+                        <button onClick={handleShowModal} className="buttonCancel"  >
                             CANCELAR
                         </button>
                         :
-                        <button onClick={handleShowModal} className="bg-[#99C883] w-60 h-10 rounded-lg hover:border-2 hover:border-black"  >
+                        <button onClick={handleShowModal} className="buttonAdd"  >
                             AGREGAR PRODUCTO
                         </button>
                 }
@@ -73,8 +73,8 @@ const ModalAddProduct = ({ id }: PropsModalAddProduct) => {
             {
                 modal ?
                     <div className="w-full"  >
-                        <div className="w-full flex justify-between bg-[#99C883] h-14 mb-3 items-center rounded-md text-sm font-bold border-4 border-black" >
-                            <div className=" flex flex-col items-center w-1/5" >
+                        <div className="contentInputs" >
+                            <div className="contentInput" >
                                 <input
                                     name="verdura"
                                     value={producto.verdura.toUpperCase()}
@@ -83,7 +83,7 @@ const ModalAddProduct = ({ id }: PropsModalAddProduct) => {
                                     style={{ width: "200px" }}
                                 />
                             </div>
-                            <div className="flex flex-col items-center w-1/5" >
+                            <div className="contentInput" >
                                 <p> PLU </p>
                                 <input
                                     name="codePlu"
@@ -94,14 +94,14 @@ const ModalAddProduct = ({ id }: PropsModalAddProduct) => {
                                     style={{ width: "50px" }}
                                 />
                             </div>
-                            <div className=" flex flex-col items-center w-1/5" >
+                            <div className=" contentInput" >
                                 <label>Fracción/entero: </label>
                                 <select value={producto.entero} name="entero" onChange={handleSelectChange} >
                                     <option value="false" >Fracción</option>
                                     <option value="true" >Entero</option>
                                 </select>
                             </div>
-                            <div className="flex flex-col items-center w-1/5" >
+                            <div className="contentInput" >
                                 <p> Promedio por bulto/caja: </p>
                                 <input
                                     name="promedio"
@@ -112,7 +112,7 @@ const ModalAddProduct = ({ id }: PropsModalAddProduct) => {
                                     style={{ width: "50px" }}
                                 />
                             </div>
-                            <div className="flex flex-col items-center w-1/5" >
+                            <div className="contentInput" >
                                 <p> Piezas por rollo: </p>
                                 <input
                                     name="numxpieza"
@@ -123,7 +123,7 @@ const ModalAddProduct = ({ id }: PropsModalAddProduct) => {
                                     style={{ width: "50px" }}
                                 />
                             </div>
-                            <div className="flex flex-col items-center w-1/5" >
+                            <div className="contentInput" >
                                 <p> Tara: </p>
                                 <input
                                     name="tara"
@@ -135,8 +135,8 @@ const ModalAddProduct = ({ id }: PropsModalAddProduct) => {
                                 />
                             </div>
                         </div>
-                        <div className="w-full flex flex-col items-center mb-8 h-10 " >
-                            <button onClick={submitData} className="bg-[#99C883] w-20 rounded-md hover:bg-[#8bf842] hover:border-2 hover:border-black " >
+                        <div className="contentButtonFetch" >
+                            <button onClick={submitData} className="buttonFetch " >
                                 LISTO
                             </button>
                         </div>

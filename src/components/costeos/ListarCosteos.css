@@ -1,0 +1,11 @@
+.contentListaCosteos {
+    @apply w-4/5 h-10 border-2 self-center mt-10;
+}
+
+.anchorItemGroup {
+    @apply flex items-center w-full justify-around bg-red-400 rounded-lg h-10 my-4 font-bold text-xl;
+}
+
+.h3Date {
+    @apply flex align-middle
+}
