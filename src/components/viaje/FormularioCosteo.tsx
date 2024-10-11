@@ -78,7 +78,7 @@ const FormularioCosteo = ({ dataSucursales }: PropsFormularioCosteo) => {
         <>
             {
                 newCosteo.length === 0 ?
-                    <div>loading</div>
+                    <div>loading...</div>
                     :
                     <div className="w-ful flex items-center flex-col align-middle mt-12" >
                         <div className="w-4/5 flex justify-evenly items-center " >
